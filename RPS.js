@@ -41,7 +41,21 @@ function playRound(human, cpu) {
 
 let humanScore = 0
 let cpuScore = 0
-const humanChoice = getHumanChoice().toLowerCase()
-const cpuChoice = getComputerChoice()
 
-playRound(humanChoice,cpuChoice)
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanChoice = getHumanChoice().toLowerCase()
+        const cpuChoice = getComputerChoice()
+        playRound(humanChoice,cpuChoice)
+    }
+
+    if (humanScore > cpuScore) {
+        console.log('Player wins!')
+    } else if (cpuScore > humanScore) {
+        console.log('CPU wins!')
+    } else {
+        console.log('Its a Tie!')
+    }
+}
+
+playGame()
