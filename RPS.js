@@ -17,25 +17,25 @@ function getHumanChoice() {
 
 function playRound(human, cpu) {
     if (human == 'paper' && cpu == 'scissor') {
-        console.log("You lose! scissors beat paper")
+        out.textContent = "You lose! scissors beat paper"
         cpuScore++
     } else if (human == 'paper' && cpu == 'rock') {
-        console.log("You win! paper beats rock")
+        out.textContent = "You win! paper beats rock"
         humanScore++
     } else if (human == 'rock' && cpu == 'paper') {
-        console.log("You lose! paper beats rock")
+        out.textContent = "You lose! paper beats rock"
         cpuScore++
     } else if (human == 'rock' && cpu == 'scissor') {
-        console.log("You win! rock beats scissor")
+        out.textContent = "You win! rock beats scissor"
         humanScore++
     } else if (human == 'scissor' && cpu == 'paper') {
-        console.log("You win! scissors beat paper")
+        out.textContent = "You win! scissors beat paper"
         humanScore++
     } else if (human == 'scissor' && cpu == 'rock') {
-        console.log("You lose! rock beats scissor")
+        out.textContent  = "You lose! rock beats scissor"
         cpuScore++
     } else {
-        console.log("Its a tie!")
+        out.textContent = "Its a tie!"
     }
 }
 
@@ -49,24 +49,25 @@ function playGame(choice) {
 
 
     if (humanScore > cpuScore) {
-        console.log('Player wins!')
+        out.textContent = 'Player wins!'
     } else if (cpuScore > humanScore) {
-        console.log('CPU wins!')
+        out.textContent = 'CPU wins!'
     } else {
-        console.log('Its a Tie!')
+        out.textContent = 'Its a Tie!'
     }
 }
 
 const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissor = document.getElementById("scissor")
+const out = document.getElementById("result")
 
 rock.addEventListener("click", () => {
-    alert("rock")
+    playRound("rock", getComputerChoice())
 })
 paper.addEventListener("click", () => {
-    alert("paper")
+    playRound("paper", getComputerChoice())
 })
 scissor.addEventListener("click", () => {
-    alert("scissor")
+    playRound("scissor", getComputerChoice())
 })
