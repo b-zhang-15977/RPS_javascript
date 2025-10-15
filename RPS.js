@@ -42,12 +42,11 @@ function playRound(human, cpu) {
 let humanScore = 0
 let cpuScore = 0
 
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice().toLowerCase()
-        const cpuChoice = getComputerChoice()
-        playRound(humanChoice,cpuChoice)
-    }
+function playGame(choice) {
+    const humanChoice = choice.toLowerCase()
+    const cpuChoice = getComputerChoice()
+    playRound(humanChoice,cpuChoice)
+
 
     if (humanScore > cpuScore) {
         console.log('Player wins!')
@@ -58,4 +57,16 @@ function playGame() {
     }
 }
 
-playGame()
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissor = document.getElementById("scissor")
+
+rock.addEventListener("click", () => {
+    alert("rock")
+})
+paper.addEventListener("click", () => {
+    alert("paper")
+})
+scissor.addEventListener("click", () => {
+    alert("scissor")
+})
