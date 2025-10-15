@@ -10,11 +10,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt('choose rock, paper, or scissors')
-    return choice
-}
-
 function playRound(human, cpu) {
     if (human == 'paper' && cpu == 'scissor') {
         out.textContent = "You lose! scissors beat paper"
