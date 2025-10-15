@@ -1,13 +1,13 @@
 function getComputerChoice() {
     let choice =  (Math.random() * 3);
     
-   if (choice < 1){
+    if (choice < 1){
         return 'rock'
-   } else if (choice < 2) {
+    } else if (choice < 2) {
         return 'paper'
     } else {
-       return 'scissors'
-   }
+        return 'scissor'
+    }
 }
 
 function getHumanChoice() {
@@ -37,30 +37,26 @@ function playRound(human, cpu) {
     } else {
         out.textContent = "Its a tie!"
     }
+
+    score.textContent = `Player: ${humanScore} | CPU: ${cpuScore}`
+
+    if (humanScore === 5 || cpuScore === 5){
+        if (humanScore > cpuScore) {
+            out.textContent = 'Player wins!'
+        } else {
+            out.textContent = 'CPU wins!'
+        }  
+    } 
 }
 
 let humanScore = 0
 let cpuScore = 0
 
-function playGame(choice) {
-    const humanChoice = choice.toLowerCase()
-    const cpuChoice = getComputerChoice()
-    playRound(humanChoice,cpuChoice)
-
-
-    if (humanScore > cpuScore) {
-        out.textContent = 'Player wins!'
-    } else if (cpuScore > humanScore) {
-        out.textContent = 'CPU wins!'
-    } else {
-        out.textContent = 'Its a Tie!'
-    }
-}
-
 const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissor = document.getElementById("scissor")
 const out = document.getElementById("result")
+const score = document.getElementById("score")
 
 rock.addEventListener("click", () => {
     playRound("rock", getComputerChoice())
@@ -71,3 +67,4 @@ paper.addEventListener("click", () => {
 scissor.addEventListener("click", () => {
     playRound("scissor", getComputerChoice())
 })
+
